@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>حساب المعدل | العميد</title>
+    <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/31fb20_f6c0f084c1c44a0abb62b18e8b27fc40~mv2.png">
+  </head>
+  <body style="margin: 0">
+    <h1 class="gpa-cal">حساب المعدل</h1>
+    <form id="calc_grades_form" onsubmit="calc_gpa(event);">
+      <div class="c_container">
+        <div class="flex_right">
+          <h6 class="p_heading">المعدل التراكمي السابق (اختياري)</h6>
+          <div class="p_inputs">
+            <input
+              type="number"
+              min="0"
+              id="p_hours"
+              placeholder="الساعات المقطوعة"
+            />
+            <input type="text" id="p_gpa" placeholder="المعدل السابق" />
+          </div>
+        </div>
+        <div class="flex_right">
+          <p class="p_paragraph" style="font-weight: bold">مواد الفصل</p>
+          <table class="gpa_table" onload="load_table()">
+            <tbody id="gpa_table"></tbody>
+          </table>
+        </div>
+        <div class="table_btns">
+          <div>
+            <button type="button" class="insert_row" onclick="add_row()">
+              <img src="https://elcom-team.com/add.svg" alt="add" />
+            </button>
+          </div>
+          <div>
+            <button type="submit">حساب المعدل</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <hr class="c_divider" /> -->
+      <div class="conc">
+        <!-- sem -->
+        <div>
+          <p class="conc_paragraph">
+            الساعات الداخلة في حساب المعدل الفصلي
+            <span id="sem_hrs" class="bold"></span>
+          </p>
+          <!-- <p class="center">المعدل الفصلي <span id="sem_gpa" class="bold"></span></p> -->
+          <!-- indicator start -->
+          <div class="indicator_container">
+            <div class="gauge" id="indicator">
+              <div class="gauge__body">
+                <div class="gauge__fill" id="indicator_fill"></div>
+                <div class="gauge__cover"></div>
+              </div>
+            </div>
+            <div>
+              <p id="pass_failed"></p>
+            </div>
+          </div>
+          <!-- indicator end -->
+        </div>
+
+        <!-- all -->
+        <div>
+          <p class="conc_paragraph">
+            الساعات الداخلة في حساب المعدل التراكمي
+            <span id="all_hrs" class="bold"></span>
+          </p>
+          <!-- <p class="center">المعدل التراكمي <span id="all_gpa" class="bold"></span></p> -->
+          <!-- indicator start -->
+          <div class="indicator_container">
+            <div class="gauge" id="indicator2">
+              <div class="gauge__body">
+                <div class="gauge__fill" id="indicator_fill2"></div>
+                <div class="gauge__cover" id="gauge_cover2"></div>
+              </div>
+            </div>
+            <div>
+              <p id="pass_failed2"></p>
+            </div>
+          </div>
+          <!-- indicator end -->
+        </div>
+      </div>
+    </form>
+    <script src="./script.js"></script>
+    <script src="./animate.js"></script>
+  </body>
+</html>
